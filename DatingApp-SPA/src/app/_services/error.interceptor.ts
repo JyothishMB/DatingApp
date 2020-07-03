@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor{
                     }
                     const serverError = error.error;
                     let modelStateErrors = '';
-                    if(serverError.errors && serverError.errors === 'object'){
+                    if(serverError.errors){
                         for(const key in serverError.errors){
                             if(serverError.errors[key]){
                                 modelStateErrors += serverError.errors[key] + '\n';
