@@ -23,10 +23,12 @@ import { appRoutes } from './routes';
 import { MemberCardsComponent } from './members/member-cards/member-cards.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { FileUploadModule } from 'ng2-file-upload';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -44,7 +46,8 @@ export function tokenGetter() {
       MessagesComponent,
       MemberCardsComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -54,6 +57,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       NgxGalleryModule,
+      FileUploadModule,
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
          config: {
